@@ -5,7 +5,7 @@ from app.db.models import Base
 
 
 class Location(Base):
-    _tablename_ = "location"
+    __tablename__ = "location"
     id = Column(Integer, primary_key=True, autoincrement=True)
     latitude = Column(Float)
     longitude = Column(Float)

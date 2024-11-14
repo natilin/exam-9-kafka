@@ -1,11 +1,11 @@
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
 
 from app.db.models import Base
 
 
-class DeviceInfo(Base):
-    _tablename_ = "person"
+class Person(Base):
+    __tablename__ = "person"
     id = Column(Integer, primary_key=True, autoincrement=True)
     email = Column(String, nullable=False)
     username = Column(String, nullable=False)

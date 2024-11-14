@@ -5,7 +5,7 @@ from app.db.models import Base
 
 
 class DeviceInfo(Base):
-    _tablename_ = "device_info"
+    __tablename__ = "device_info"
     id = Column(Integer, primary_key=True, autoincrement=True)
     browser = Column(String)
     os = Column(String)
