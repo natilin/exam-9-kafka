@@ -10,29 +10,25 @@ def handel_new_message(new_email: dict, content: str):
         created_at=new_email["created_at"]
     )
     location = Location(
-        latitude=new_email["latitude"],
-        longitude=new_email["longitude"],
-        city=new_email["city"],
-        country=new_email["country"]
+        latitude=new_email["location"]["latitude"],
+        longitude=new_email["location"]["longitude"],
+        city=new_email["location"]["city"],
+        country=new_email["location"]["country"]
     )
     device_info = DeviceInfo(
-        browser=new_email["browser"],
-        os=new_email["os"],
-        device_id=new_email["device_id"]
+        browser=new_email["device_info"]["browser"],
+        os=new_email["device_info"]["os"],
+        device_id=new_email["device_info"]["device_id"]
     )
     person.location = location
     person.device_info = device_info
 
     if content == "explosive":
-        explosive_content = ExplosiveContent(
-            sentence=new_email["sentence"]
-        )
+        explosive_content = [ ExplosiveContent(sentence=sentence) for sentence in new_email["sentences"]]
         person.explosive_contents = explosive_content
 
     elif content == "hostage":
-       hostage_content =  HostageContent(
-           sentence=new_email["sentence"]
-       )
+       hostage_content =  [HostageContent(sentence=sentence) for sentence in new_email["sentences"]]
        person.hostage_contents = hostage_content
 
     return add_new_person(person)

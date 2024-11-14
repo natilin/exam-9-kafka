@@ -67,5 +67,4 @@ async def process_message(messages):
 
 
 if __name__ == '__main__':
-    # Run Faust in one thread
     app.main()
