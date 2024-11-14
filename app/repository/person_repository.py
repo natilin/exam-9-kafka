@@ -33,8 +33,11 @@ def get_context_by_email(email) -> dict:
                 return {
                     "id":context.id,
                     "email":context.email,
+                    "username":context.username,
+                    "ip_address":context.ip_address,
                     "explosive_contents": exploding_list,
                     "hostage_contents": hostage_list,
+                    "created_at":context.created_at
 
                 }
             return {}
