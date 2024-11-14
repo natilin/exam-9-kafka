@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from flask import Flask
 from kafka import KafkaConsumer
 
+from app.db.mongo_database import init_mongo_db
 from app.repository.all_messages_repository import add_new_message
 
 load_dotenv(verbose=True)
@@ -27,5 +28,5 @@ def consumer_get_all_message():
 
 
 if __name__ == "__main__":
+    init_mongo_db()
     consumer_get_all_message()
-    app.run()
