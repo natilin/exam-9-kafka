@@ -15,10 +15,10 @@ app = faust.App(
     value_serializer='json'  # Message value format
 )
 
-# Define a Kafka topic to consume from
+
 all_message_topic = app.topic(os.environ["ALL_MESSAGES_TOPIC"])
 
-# Define an output Kafka topic to produce to
+
 processed_exploding_msg_topic = app.topic(os.environ["EXPLOSIVE_MESSAGES_TOPIC"])
 processed_hostage_msg_topic = app.topic(os.environ["HOSTAGE_MESSAGES_TOPIC"])
 
